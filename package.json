@@ -1,0 +1,35 @@
+{
+  "name": "kairove",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Windows meeting assistant",
+  "main": "electron/main.cjs",
+  "author": "Kairove",
+  "scripts": {
+    "dev": "electron .",
+    "build": "vite build",
+    "start": "electron .",
+    "dist:win": "npm run build && electron-builder --win nsis",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.12",
+    "vite": "^7.1.0"
+  },
+  "build": {
+    "appId": "com.kairove.assistant",
+    "productName": "Kairove",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "release"
+    }
+  }
+}
